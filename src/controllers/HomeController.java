@@ -120,12 +120,16 @@ public class HomeController implements Initializable {
      txtLastname.setText(t[2]);
      txtEmail.setText(t[3]);
      txtGender.setValue(t[4]);
-  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
+        System.out.println("");
+        /*
+  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
   String date = txtDOB.getValue().toString();
 
   //convert String to LocalDate
   LocalDate localDate = LocalDate.parse(date, formatter);
-    txtDOB.setValue(localDate);
+                */
+    txtDOB.setValue(LocalDate.of(1955, 12, 12));
+
     
     }
     else 
