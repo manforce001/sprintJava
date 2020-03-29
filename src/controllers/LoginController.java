@@ -12,10 +12,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -151,6 +154,55 @@ public class LoginController implements Initializable {
                 }
 
             }
+            else
+            {
+            if (logIn().equals("utlisateur"))
+            {
+                try {
+                   FXMLLoader loader =  new  FXMLLoader(getClass().getResource("/fxml/InterfaceUtlisateur.fxml")); 
+
+                    Parent root = (Parent) loader.load();
+                    UtlisateurControlleur utcontroller = loader.getController(); 
+                    utcontroller.myFunction("nassri");
+                    System.out.println(" fonction verid");
+                             
+                             
+                    Node node = (Node) event.getSource();
+                    Stage stage = (Stage) node.getScene().getWindow();
+                    //stage.setMaximized(true);
+                    stage.close();
+                               
+                    Scene scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
+                    
+                    /*
+                    try {
+                    
+                    //add you loading or delays - ;-)
+                    Node node = (Node) event.getSource();
+                    Stage stage = (Stage) node.getScene().getWindow();
+                    //stage.setMaximized(true);
+                    stage.close();
+                               
+                    Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/fxml/InterfaceUtlisateur.fxml")));
+                    stage.setScene(scene);
+                    stage.show();
+                    
+                    
+                    } catch (IOException ex) {
+                    System.err.println(ex.getMessage());
+                    }
+                    */
+                } catch (IOException ex) {
+                    Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+            }
+                
+            }
+         
+
         }
     }
 

@@ -203,7 +203,7 @@ fetRowList();
     }
 
     private ObservableList<ObservableList> data;
-    String SQL = "SELECT * from listeuser";
+        String SQL = "SELECT * from listeuser";
 
     //only fetch columns
     private void fetColumnList() {
