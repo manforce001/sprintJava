@@ -8,6 +8,5 @@ Focus areas
 
 A simple sample to get you started.
 
-![](https://github.com/k33ptoo/JavaFX-MySQL-Login/blob/master/img.png)
-
-![](https://github.com/k33ptoo/JavaFX-MySQL-Login/blob/master/img2.png)
+![](C:/Users/Nasri/Documents/NetBeansProjects/firstway/img.png)
+![](C:/Users/Nasri/Documents/NetBeansProjects/firstway/img2.png)
