@@ -121,7 +121,7 @@ public class LoginController implements Initializable {
                     Node node = (Node) event.getSource();
                     Stage stage = (Stage) node.getScene().getWindow();
                     stage.close();
-                    Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/fxml/register.fxml")));
+                    Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/fxml/Recamation.fxml")));
                     stage.setScene(scene);
                     stage.show();
 
@@ -145,7 +145,7 @@ public class LoginController implements Initializable {
                     Stage stage = (Stage) node.getScene().getWindow();
                     //stage.setMaximized(true);
                     stage.close();
-                    Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/fxml/admin.fxml")));
+                    Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/fxml/OnBoard.fxml")));
                     stage.setScene(scene);
                     stage.show();
                   
@@ -204,6 +204,7 @@ public class LoginController implements Initializable {
 
     public LoginController() {
         con = ConnectionUtil.conDB();
+        
     }
 
     //we gonna use string to check for status
