@@ -38,6 +38,7 @@
             <PasswordField fx:id="txtPassword" layoutX="419.0" layoutY="365.0" prefHeight="34.0" prefWidth="278.0" promptText="password" stylesheets="@../styling/fullpackstyling.css" />
             <Label fx:id="label" layoutX="427.0" layoutY="476.0" prefHeight="17.0" prefWidth="278.0" />
             <TextField fx:id="txttele" layoutX="419.0" layoutY="212.0" prefHeight="32.0" prefWidth="278.0" promptText="telephone" />
+            <Label fx:id="lblStatus" layoutX="464.0" layoutY="469.0" prefHeight="32.0" prefWidth="278.0" />
 
             </children>
         </Pane>
