@@ -42,8 +42,10 @@ public class registerController implements Initializable
     @FXML
     private TextField txtEmail;
     
+    @FXML
+    private TextField txttele; 
     
-
+    
     @FXML
     private DatePicker txtDOB;
 
@@ -99,17 +101,23 @@ public class registerController implements Initializable
          }
         //check if not empty
     }
+    private String ControleSaisir(String nom ,String prenom, String email , String role, String telephone ,String DateNa , String Passord)
+    {
+        return"false"; 
+    }
     private String saveData() {
         String s =txtPassword.getText(); 
         try {
-            String st = "INSERT INTO  listeuser ( firstname, lastname, email, gender, dob, password) VALUES (?,?,?,?,?,?)";
+            String st = "INSERT INTO  user ( nom , prenom, email, role, telephone , dateNa, password) VALUES (?,?,?,?,?,?,?)";
             preparedStatement = (PreparedStatement) connection.prepareStatement(st);
             preparedStatement.setString(1, txtFirstname.getText());
             preparedStatement.setString(2, txtLastname.getText());
             preparedStatement.setString(3, txtEmail.getText());
             preparedStatement.setString(4, txtGender.getValue().toString());
-            preparedStatement.setString(5, txtDOB.getValue().toString());
-            preparedStatement.setString(6, s);
+            preparedStatement.setString(5, txttele.getText());
+            
+            preparedStatement.setString(6, txtDOB.getValue().toString());
+            preparedStatement.setString(7, s);
 
             
 

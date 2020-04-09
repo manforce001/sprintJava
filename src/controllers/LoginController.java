@@ -14,6 +14,8 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -107,9 +109,8 @@ public class LoginController implements Initializable {
                     
 
      }
-
-        
-        public void handleButton2Action (MouseEvent event) 
+  
+    public void handleButton2Action (MouseEvent event) 
     {
        if (event.getSource() == btnSignup)
        {
@@ -175,25 +176,7 @@ public class LoginController implements Initializable {
                     Scene scene = new Scene(root);
                     stage.setScene(scene);
                     stage.show();
-                    
-                    /*
-                    try {
-                    
-                    //add you loading or delays - ;-)
-                    Node node = (Node) event.getSource();
-                    Stage stage = (Stage) node.getScene().getWindow();
-                    //stage.setMaximized(true);
-                    stage.close();
-                               
-                    Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/fxml/InterfaceUtlisateur.fxml")));
-                    stage.setScene(scene);
-                    stage.show();
-                    
-                    
-                    } catch (IOException ex) {
-                    System.err.println(ex.getMessage());
-                    }
-                    */
+               
                 } catch (IOException ex) {
                     Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -209,8 +192,7 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-            txtGender.getItems().addAll("admin", "jury", "coatch","utlisateur");
-            txtGender.getSelectionModel().select("utlisateur");
+      
         if (con == null) {
             lblErrors.setTextFill(Color.TOMATO);
             lblErrors.setText("Server Error : Check");
@@ -229,33 +211,56 @@ public class LoginController implements Initializable {
         String status = "Success";
         String email = txtUsername.getText();
         String password = txtPassword.getText();
-        String role = txtGender.getValue(); 
-        if(email.isEmpty() || password.isEmpty()) {
-            setLblError(Color.TOMATO, "Empty credentials");
+        String regex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(txtUsername.getText());
+        System.out.println(email +" : "+ matcher.matches());
+        Boolean a =false; 
+        String b=RechercheMail(txtUsername.getText()); 
+    
+        if(a==matcher.matches())
+        {
+            setLblError(Color.TOMATO, "adresse mail invalid");
             status = "Error";
-        } else {
+        }
+        
+        else 
+        {    
+                
+            if(email.isEmpty() || password.isEmpty()) 
+            {   
+
+                setLblError(Color.TOMATO, "Empty credentials");
+                status = "Error";
+            }
+        
+        else {
+            
             //query
-            String sql = "SELECT * FROM admin Where email = ? and password = ? and role = ? ";
+            String sql = "SELECT * FROM user Where email = ? and password = ?  ";
             try {
                 preparedStatement = con.prepareStatement(sql);
                 preparedStatement.setString(1, email);
                 preparedStatement.setString(2, password);
-                preparedStatement.setString(3, role);
-
                 resultSet = preparedStatement.executeQuery();
                 if (!resultSet.next()) {
                     setLblError(Color.TOMATO, "Enter Correct Email/Password");
                     status = "Error";
                 } else {
+                    System.out.println("test role");
+                    System.out.println(resultSet.getString(4)); 
+                    String role =resultSet.getString(5); 
+                    System.err.println("test role");
                     setLblError(Color.GREEN, "Login Successful..Redirecting..");
+                    return role; 
                 }
             } catch (SQLException ex) {
                 System.err.println(ex.getMessage());
                 status = "Exception";
             }
         }
-        
-        return role;
+        }
+       return "false"; 
     }
     
     private void setLblError(Color color, String text) {
@@ -296,4 +301,4 @@ public class LoginController implements Initializable {
     
     
     
-}
+}   

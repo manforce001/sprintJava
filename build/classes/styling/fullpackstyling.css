@@ -17,10 +17,10 @@
 
 .button2
 {
--fx-background-color :   #b498a3;
+-fx-background-color :   #6f002a;
 -fx-border-color: #FFF;
 -fx-text-fill:  #FFF;
-}
+}   
 .button2:hover
 {
 -fx-background-color : #0C3988 ;
@@ -31,6 +31,25 @@
 -fx-background-color : #0C3400 ;
 -fx-text-fill: #FFF;
 }
+/*******************************************/
+.button3
+{
+-fx-background-color :   #6f002a;
+-fx-border-color: #FFF;
+-fx-text-fill:  #FFF;
+}   
+.button3:hover
+{
+-fx-background-color : #642c42 ;
+-fx-text-fill:   #FFF;
+}
+.button3:pressed
+{
+-fx-background-color : #a73a65 ;
+-fx-text-fill: #FFF;
+}
+/****************************************/
+
 
 
 .table-view .column-header,
