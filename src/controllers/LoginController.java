@@ -121,7 +121,7 @@ public class LoginController implements Initializable {
                     Node node = (Node) event.getSource();
                     Stage stage = (Stage) node.getScene().getWindow();
                     stage.close();
-                    Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/fxml/Recamation.fxml")));
+                    Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/fxml/register.fxml")));
                     stage.setScene(scene);
                     stage.show();
 
@@ -138,20 +138,26 @@ public class LoginController implements Initializable {
         if (event.getSource() == btnSignin) {
             //login here
             if (logIn().equals("admin")) {
-                try {
+               try {
+                   FXMLLoader loader =  new  FXMLLoader(getClass().getResource("/fxml/admin.fxml")); 
 
-                    //add you loading or delays - ;-)
+                    Parent root = (Parent) loader.load();
+                    adminController utcontroller = loader.getController(); 
+                    utcontroller.myFunction(txtUsername.getText());
+                    System.out.println(" fonction verid");
+                             
+                             
                     Node node = (Node) event.getSource();
                     Stage stage = (Stage) node.getScene().getWindow();
                     //stage.setMaximized(true);
                     stage.close();
-                    Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/fxml/admin.fxml")));
+                               
+                    Scene scene = new Scene(root);
                     stage.setScene(scene);
                     stage.show();
-                  
-                   
+               
                 } catch (IOException ex) {
-                    System.err.println(ex.getMessage());
+                    Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
             }
@@ -164,10 +170,8 @@ public class LoginController implements Initializable {
 
                     Parent root = (Parent) loader.load();
                     UtlisateurControlleur utcontroller = loader.getController(); 
-                    utcontroller.myFunction("nassri");
-                    System.out.println(" fonction verid");
-                             
-                             
+                    utcontroller.myFunction(txtUsername.getText());
+               
                     Node node = (Node) event.getSource();
                     Stage stage = (Stage) node.getScene().getWindow();
                     //stage.setMaximized(true);

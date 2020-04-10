@@ -37,7 +37,9 @@ import utils.ConnectionUtil;
  */
 public class reclamationController implements Initializable 
 {
-    
+     @FXML
+    private Label nomutlisateur;
+     
     @FXML
     private TextField txtFirstname;
 
@@ -196,4 +198,9 @@ public class reclamationController implements Initializable
     
 
 }
+     
+      public void myFunction( String Text )
+        {
+            nomutlisateur.setText(Text);
+        }
 }

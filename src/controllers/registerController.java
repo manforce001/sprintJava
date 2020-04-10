@@ -107,70 +107,19 @@ public class registerController implements Initializable
          }
         //check if not empty
     }
-    private String ControleSaisir(String nom ,String prenom, String email , String role, String telephone ,String DateNa , String Passord)
-    {
-        
-        String regex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(email);
-        System.out.println(email +" : "+ matcher.matches());
-        Boolean a =matcher.matches(); 
-       
-    
-       
-
-            if(nom.isEmpty())
-            {
-              return (" le nom est vide ");    
-            }
-            else{
-                if(prenom.isEmpty())
-                {
-                    return (" le prenom est vide"); 
-                }
-                else
-                    if(email.isEmpty())
-                    {
-                        return("email est vide "); 
-                    }
-                    else
-                    {
-                        if(role.isEmpty())
-                        {
-                            return (" role est vide "); 
-                        }
-                        else
-                        {
-                            if(telephone.isEmpty())
-                            {
-                                return ("email est vide"); 
-                            }
-                            else 
-                            {
-                                if(DateNa.isEmpty())
-                                {
-                                    return ("date nasiisance  est vide "); 
-                                }
-                                else
-                                {
-                                    if (Passord.isEmpty())
-                                    {
-                                        return (" password est vide"); 
-                                    }
-                                }
-                            }
-                            
-                        }
-                        
-                    }
-                
-                
-                        
-                    
-                
-            }
-    return "false";    
+    public boolean isEntier(String Text)
+    {   
+        try
+        {
+            Integer.parseInt(Text); 
+        }
+        catch(Exception e)
+        {
+             return false; 
+        }
+       return true; 
     }
+    
     private String saveData() 
     {
            
@@ -239,6 +188,15 @@ public class registerController implements Initializable
                                             lblStatus.setTextFill(Color.WHITE);
                                             lblStatus.setText("email n'est pas valide ");
                                              return (" password est vide"); 
+                                        }
+                                        else
+                                        {
+                                            if(!isEntier(txttele.getText()))
+                                            {
+                                            lblStatus.setTextFill(Color.WHITE);
+                                            lblStatus.setText("telephone n'est pas valide ");
+                                            return (" password est vide"); 
+                                            }
                                         }
                                     }
                                 }

@@ -30,19 +30,20 @@
             <Button fx:id="GestionPublication" layoutX="39.0" layoutY="261.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="342.0" styleClass="button2" stylesheets="@../styling/fullpackstyling.css" text="Gestion de publication  " />
             <Button fx:id="GestionCommentaire" layoutX="39.0" layoutY="316.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="342.0" styleClass="button2" stylesheets="@../styling/fullpackstyling.css" text="Gestion de commentaire " />
             <Button fx:id="GestionSpo" layoutX="39.0" layoutY="377.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="342.0" styleClass="button2" stylesheets="@../styling/fullpackstyling.css" text="Gestion de sponsoring" />
+            <Button fx:id="Gestionrec" layoutX="39.0" layoutY="435.0" mnemonicParsing="false" onMouseClicked="#handleButton2Action" prefHeight="41.0" prefWidth="342.0" styleClass="button2" stylesheets="@../styling/fullpackstyling.css" text="Gestion de reclamation" />
             </children>
         </Pane>
-      <TextField layoutX="693.0" layoutY="296.0" />
+      <TextField fx:id="nomUt" layoutX="693.0" layoutY="296.0" />
       <Text layoutX="551.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom" />
       <Text layoutX="553.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prenom" />
       <Text layoutX="553.0" layoutY="415.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
-      <TextField layoutX="693.0" layoutY="347.0" />
-      <TextField layoutX="693.0" layoutY="398.0" />
+      <TextField fx:id="prenomUti" layoutX="693.0" layoutY="347.0" />
+      <TextField fx:id="emailut" layoutX="693.0" layoutY="398.0" />
       <Text layoutX="551.0" layoutY="470.0" strokeType="OUTSIDE" strokeWidth="0.0" text="date de naissance " />
-      <TextField layoutX="693.0" layoutY="453.0" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="679.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true">
+      <TextField fx:id="datena" layoutX="693.0" layoutY="453.0" />
+      <ImageView fitHeight="161.0" fitWidth="173.0" layoutX="681.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../Downloads/index.jpg" />
+            <Image url="@../images/img.png" />
          </image>
       </ImageView>
     </children> 
