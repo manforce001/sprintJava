@@ -11,24 +11,35 @@ import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.function.Predicate;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 import models.Reclamation;
+import models.User;
 import utils.ConnectionUtil;
 
 /**
@@ -155,10 +166,19 @@ public class reclamationController implements Initializable
             });
         
             
-        
+         treeTableView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+                showDetails(newValue);
+            }); 
         
     }
-    
+     public void showDetails(TreeItem<Reclamation> treeItem)
+     {
+         
+              txtFirstname.setText(treeItem.getValue().getSujet().getValue());
+              txtLastname.setText(treeItem.getValue().getReclamation().getValue()); 
+
+     }
+     
      public ObservableList<Reclamation> fetRowList() 
      {
         String SQL = "SELECT * from reclamation";
@@ -203,4 +223,132 @@ public class reclamationController implements Initializable
         {
             nomutlisateur.setText(Text);
         }
+      
+    @FXML
+    private void HandleEvents(MouseEvent event) {
+        //check if not empty
+        if ( txtFirstname.getText().isEmpty() || txtLastname.getText().isEmpty() )
+        {
+            lblStatus.setTextFill(Color.TOMATO);
+            lblStatus.setText("Enter all details");
+        } else {
+            saveData();
+            fetRowList(); 
+        }
+
+    }
+    
+    
+     @FXML
+    private void Handle3Events(MouseEvent event) 
+    {
+       try {
+                   FXMLLoader loader =  new  FXMLLoader(getClass().getResource("/fxml/Recamation.fxml")); 
+
+                    Parent root = (Parent) loader.load();
+                    reclamationController utcontroller = loader.getController(); 
+                    utcontroller.myFunction(nomutlisateur.getText());
+               
+                    Node node = (Node) event.getSource();
+                    Stage stage = (Stage) node.getScene().getWindow();
+                    //stage.setMaximized(true);
+                    stage.close();
+                               
+                    Scene scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
+                  
+                   
+                } catch (IOException ex) {
+                    System.err.println(ex.getMessage());
+                }
+     
+    }
+    
+     @FXML
+    private void Handle1Events(MouseEvent event) 
+    {
+        if ( txtFirstname.getText().isEmpty() || txtLastname.getText().isEmpty() )
+        {
+            lblStatus.setTextFill(Color.TOMATO);
+            lblStatus.setText("Enter all details");
+        } 
+        else
+        {
+        try 
+        {
+          
+            String req="delete from reclamation where reclamation=?"; 
+            preparedStatement = (PreparedStatement) connection.prepareStatement(req);
+            preparedStatement.setString(1, txtLastname.getText());
+            preparedStatement.executeUpdate();
+            
+            lblStatus.setTextFill(Color.GREEN);
+            lblStatus.setText("reclamation effacée");
+
+        } 
+        catch (SQLException ex) 
+        {
+             System.out.println(ex.getMessage());
+
+        }
+        }
+      
+    }
+    
+      
+      public void saveData()
+      {
+          int a=Recherche(nomutlisateur.getText()).getId(); 
+           try {
+            String st = "INSERT INTO  reclamation (id_user,sujet, reclamation , etat ,reponse) VALUES (?,?,?,?,?)";
+            preparedStatement = (PreparedStatement) connection.prepareStatement(st);
+            preparedStatement.setInt(1,a);
+            preparedStatement.setString(2, txtFirstname.getText());
+            preparedStatement.setString(3, txtLastname.getText());
+            preparedStatement.setString(4, "Null");
+            preparedStatement.setString(5, "Non traitée ");
+     
+           preparedStatement.executeUpdate();
+           lblStatus.setText("Added Successfully");
+            System.out.println("insertion terminer ");
+       
+
+        } 
+        catch (SQLException ex) {
+           // System.out.println(ex.getMessage());
+           lblStatus.setText(ex.getMessage());
+          
+        }
+      }
+       public User Recherche(String Text)
+      {
+          try {
+            String req="select * from user where email=? "; 
+           
+            preparedStatement = (PreparedStatement) connection.prepareStatement(req);
+
+
+     
+            preparedStatement.setString(1, Text);
+           ResultSet rs = preparedStatement.executeQuery();
+            while(rs.next())
+            {
+                
+                User p = new User(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8));
+                System.out.println(p.toString());
+                return (p); 
+
+            }
+                    
+
+        } 
+        catch (SQLException ex) 
+        {
+             System.out.println(ex.getMessage());
+
+        }
+         User p1 = null;
+          return (p1); 
+      }
 }

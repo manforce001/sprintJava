@@ -89,8 +89,22 @@ public class LoginController implements Initializable {
                      a.send(email, "test",f.generatePassword(8).toString());
 
                     */
-                     
+                    String newPass = f.generatePassword(8).toString(); 
+                    System.out.println(newPass);
+                    
+                      String sql = "update user set password  =? where email=?";
+            try {
+                preparedStatement = con.prepareStatement(sql);
+                preparedStatement.setString(1, newPass);
+                preparedStatement.setString(2, email);
+                preparedStatement.executeUpdate();
+              
+             } 
+            catch (SQLException ex)
+                    {
+                        System.err.println(ex.getMessage());
 
+                    }
                     
                     a.send("nasr22188@gmail.com", "test",f.generatePassword(8).toString());
                     lblErrors.setTextFill(Color.GREEN);
@@ -280,7 +294,7 @@ public class LoginController implements Initializable {
         String status = "Success";
       
             //query
-            String sql = "SELECT * FROM admin Where email = ?  ";
+            String sql = "SELECT * FROM user Where email = ?  ";
             try {
                 preparedStatement = con.prepareStatement(sql);
                 preparedStatement.setString(1, email);

@@ -111,12 +111,18 @@ public class adminController implements Initializable
         if (event.getSource() == Gestionrec) {
             //login here
                 try {
-                    //add you loading or delays - ;-)
+                   FXMLLoader loader =  new  FXMLLoader(getClass().getResource("/fxml/Recamation.fxml")); 
+
+                    Parent root = (Parent) loader.load();
+                    reclamationController utcontroller = loader.getController(); 
+                    utcontroller.myFunction(emailut.getText());
+               
                     Node node = (Node) event.getSource();
                     Stage stage = (Stage) node.getScene().getWindow();
                     //stage.setMaximized(true);
                     stage.close();
-                    Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/fxml/Recamation.fxml")));
+                               
+                    Scene scene = new Scene(root);
                     stage.setScene(scene);
                     stage.show();
                   
@@ -138,34 +144,34 @@ public class adminController implements Initializable
               
            
         }
-      public User Recherche(String Text)
-      {
-          try {
-            String req="select * from user where email=? "; 
-            preparedStatement = (com.mysql.jdbc.PreparedStatement) con.prepareStatement(req);
-
-     
-            preparedStatement.setString(1, Text);
-           ResultSet rs = preparedStatement.executeQuery();
-            while(rs.next())
-            {
-                
-                User p = new User(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8));
-                System.out.println(p.toString());
-                return (p); 
-
-            }
-                    
-
-        } 
-        catch (SQLException ex) 
+        public User Recherche(String Text)
         {
-             System.out.println(ex.getMessage());
+            try {
+              String req="select * from user where email=? "; 
+              preparedStatement = (com.mysql.jdbc.PreparedStatement) con.prepareStatement(req);
 
+
+              preparedStatement.setString(1, Text);
+             ResultSet rs = preparedStatement.executeQuery();
+              while(rs.next())
+              {
+
+                  User p = new User(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8));
+                  System.out.println(p.toString());
+                  return (p); 
+
+              }
+
+
+          } 
+          catch (SQLException ex) 
+          {
+               System.out.println(ex.getMessage());
+
+          }
+           User p1 = null;
+            return (p1); 
         }
-         User p1 = null;
-          return (p1); 
-      }
     @Override
     public void initialize(URL location, ResourceBundle resources) 
     {

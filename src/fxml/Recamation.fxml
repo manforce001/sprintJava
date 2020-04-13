@@ -27,16 +27,16 @@
                         <Font name="Segoe UI" size="18.0" />
                     </font>
                 </Label>
-                <TextField fx:id="txtFirstname" alignment="CENTER" layoutX="75.0" layoutY="144.0" prefHeight="32.0" prefWidth="278.0" promptText="firstname" text="sujet">
+                <TextField fx:id="txtFirstname" alignment="CENTER" layoutX="75.0" layoutY="144.0" prefHeight="32.0" prefWidth="278.0" promptText="sujet">
                <font>
                   <Font name="Segoe UI" size="18.0" />
                </font></TextField>
-                <TextField fx:id="txtLastname" alignment="CENTER" layoutX="75.0" layoutY="210.0" prefHeight="197.0" prefWidth="278.0" promptText="lastname" text="Reclamation">
+                <TextField fx:id="txtLastname" alignment="CENTER" layoutX="75.0" layoutY="210.0" prefHeight="197.0" prefWidth="278.0" promptText="Reclamation">
                <font>
                   <Font name="Corbel" size="17.0" />
                </font></TextField>
-            <Button fx:id="update" layoutX="47.0" layoutY="458.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="161.0" styleClass="button2" stylesheets="@../styling/fullpackstyling.css" text="Ajouter Reclmation" />
-            <Button fx:id="delete" layoutX="239.0" layoutY="458.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="161.0" styleClass="button2" stylesheets="@../styling/fullpackstyling.css" text="Supprimer Reclmation" />
+            <Button fx:id="update" layoutX="47.0" layoutY="458.0" mnemonicParsing="false" onMouseClicked="#HandleEvents" prefHeight="27.0" prefWidth="161.0" styleClass="button2" stylesheets="@../styling/fullpackstyling.css" text="Ajouter Reclmation" />
+            <Button fx:id="delete" layoutX="239.0" layoutY="458.0" mnemonicParsing="false" onMouseClicked="#Handle1Events" prefHeight="27.0" prefWidth="161.0" styleClass="button2" stylesheets="@../styling/fullpackstyling.css" text="Supprimer Reclmation" />
             </children>
         </Pane>
          <JFXTreeTableView fx:id="treeTableView" layoutX="429.0" layoutY="186.0" prefHeight="379.0" prefWidth="671.0">
@@ -52,7 +52,7 @@
       </JFXTreeTableView>
         <Label fx:id="lblStatus" layoutX="437.0" layoutY="64.0" prefHeight="32.0" prefWidth="354.0" text="Status :" />
       <Button fx:id="search" layoutX="1008.0" layoutY="109.0" mnemonicParsing="false" text="Search" />
-      <Button fx:id="refresh" layoutX="437.0" layoutY="109.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Refresh" />
+      <Button fx:id="refresh" layoutX="437.0" layoutY="109.0" mnemonicParsing="false" onMouseClicked="#Handle3Events" prefHeight="25.0" prefWidth="70.0" text="Refresh" />
       <Label layoutX="437.0" layoutY="149.0" prefHeight="32.0" prefWidth="228.0" text="Liste des reclamations">
          <font>
             <Font size="20.0" />
