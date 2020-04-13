@@ -111,10 +111,10 @@ public class adminController implements Initializable
         if (event.getSource() == Gestionrec) {
             //login here
                 try {
-                   FXMLLoader loader =  new  FXMLLoader(getClass().getResource("/fxml/Recamation.fxml")); 
+                   FXMLLoader loader =  new  FXMLLoader(getClass().getResource("/fxml/ReclamationAdmin.fxml")); 
 
                     Parent root = (Parent) loader.load();
-                    reclamationController utcontroller = loader.getController(); 
+                    reclamationAdmin utcontroller = loader.getController(); 
                     utcontroller.myFunction(emailut.getText());
                
                     Node node = (Node) event.getSource();
