@@ -17,6 +17,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.function.Predicate;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -230,6 +232,37 @@ public class reclamationAdmin implements Initializable
             nomutlisateur.setText(Text);
         }
       
+    /* retour en arrière*/  
+     @FXML
+    private void Handle5Events(MouseEvent event) 
+    {
+       try {
+                   FXMLLoader loader =  new  FXMLLoader(getClass().getResource("/fxml/admin.fxml")); 
+
+                    Parent root = (Parent) loader.load();
+                    adminController utcontroller = loader.getController(); 
+                    utcontroller.myFunction(nomutlisateur.getText());
+                    System.out.println(" fonction verid");
+                             
+                             
+                    Node node = (Node) event.getSource();
+                    Stage stage = (Stage) node.getScene().getWindow();
+                    //stage.setMaximized(true);
+                    stage.close();
+                               
+                    Scene scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
+               
+                }
+               catch (IOException ex) 
+                {
+                    Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+
+    }
+    
     @FXML
     private void HandleEvents(MouseEvent event) {
         //check if not empty

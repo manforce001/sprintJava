@@ -3,18 +3,25 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Nasri/Documents/NetBeansProjects/firstway/src/styling/fullpackstyling.css</file>
-            <file>file:/C:/Users/Nasri/Documents/NetBeansProjects/firstway/src/controllers/mail.java</file>
             <file>file:/C:/Users/Nasri/Documents/NetBeansProjects/firstway/src/fxml/Login.fxml</file>
             <file>file:/C:/Users/Nasri/Documents/NetBeansProjects/firstway/src/fxml/InterfaceUtlisateur.fxml</file>
             <file>file:/C:/Users/Nasri/Documents/NetBeansProjects/firstway/src/fxml/admin.fxml</file>
-            <file>file:/C:/Users/Nasri/Documents/NetBeansProjects/firstway/src/controllers/HomeController.java</file>
+            <file>file:/C:/Users/Nasri/Documents/NetBeansProjects/firstway/src/utils/mail.java</file>
             <file>file:/C:/Users/Nasri/Documents/NetBeansProjects/firstway/src/fxml/OnBoard.fxml</file>
+            <file>file:/C:/Users/Nasri/Documents/NetBeansProjects/firstway/src/controllers/editUserController.java</file>
+            <file>file:/C:/Users/Nasri/Documents/NetBeansProjects/firstway/src/fxml/editUser.fxml</file>
+            <file>file:/C:/Users/Nasri/Documents/NetBeansProjects/firstway/src/utils/ConnectionUtil.java</file>
+            <file>file:/C:/Users/Nasri/Documents/NetBeansProjects/firstway/src/fxml/Recamation.fxml</file>
+            <file>file:/C:/Users/Nasri/Documents/NetBeansProjects/firstway/src/controllers/reclamationController.java</file>
+            <file>file:/C:/Users/Nasri/Documents/NetBeansProjects/firstway/src/styling/fullpackstyling.css</file>
+            <file>file:/C:/Users/Nasri/Documents/NetBeansProjects/firstway/src/controllers/adminController.java</file>
+            <file>file:/C:/Users/Nasri/Documents/NetBeansProjects/firstway/src/controllers/UtlisateurControlleur.java</file>
+            <file>file:/C:/Users/Nasri/Documents/NetBeansProjects/firstway/src/controllers/HomeController.java</file>
+            <file>file:/C:/Users/Nasri/Documents/NetBeansProjects/firstway/src/home/Main.java</file>
+            <file>file:/C:/Users/Nasri/Documents/NetBeansProjects/firstway/src/controllers/reclamationAdmin.java</file>
             <file>file:/C:/Users/Nasri/Documents/NetBeansProjects/firstway/src/controllers/registerController.java</file>
             <file>file:/C:/Users/Nasri/Documents/NetBeansProjects/firstway/src/controllers/LoginController.java</file>
-            <file>file:/C:/Users/Nasri/Documents/NetBeansProjects/firstway/src/utils/ConnectionUtil.java</file>
             <file>file:/C:/Users/Nasri/Documents/NetBeansProjects/firstway/src/service/forgetPassword.java</file>
-            <file>file:/C:/Users/Nasri/Documents/NetBeansProjects/firstway/src/fxml/EditUser.fxml</file>
         </group>
     </open-files>
 </project-private>

@@ -8,11 +8,15 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="firstway.jar" size="133710" download="eager" />
+    <jar href="firstway.jar" size="141491" download="eager" />
     <jar href="lib\javax.mail.jar" size="659033" download="eager" />
     <jar href="lib\jfoenix-8.0.8.jar" size="2708772" download="eager" />
     <jar href="lib\jfoenix-9.0.8.jar" size="2419463" download="eager" />
     <jar href="lib\mysql-connector-java-5.1.39-bin.jar" size="989497" download="eager" />
+    <jar href="lib\twilio-7.21.0-jar-with-dependencies.jar" size="8861179" download="eager" />
+    <jar href="lib\twilio-7.21.0-javadoc.jar" size="9178434" download="eager" />
+    <jar href="lib\twilio-7.21.0-sources.jar" size="1890531" download="eager" />
+    <jar href="lib\twilio-7.21.0.jar" size="2842507" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="firstway" >
     <param name="requiredFXVersion" value="8.0+"/>

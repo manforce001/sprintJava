@@ -5,6 +5,7 @@ package controllers;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import utils.mail;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -32,6 +33,7 @@ import javafx.stage.Stage;
 import javax.mail.MessagingException;
 import service.forgetPassword;
 import utils.ConnectionUtil;
+import utils.SMS;
 
 /**
  *
@@ -170,7 +172,9 @@ public class LoginController implements Initializable {
                     stage.setScene(scene);
                     stage.show();
                
-                } catch (IOException ex) {
+                }
+               catch (IOException ex) 
+                {
                     Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
@@ -271,6 +275,10 @@ public class LoginController implements Initializable {
                     String role =resultSet.getString(5); 
                     System.err.println("test role");
                     setLblError(Color.GREEN, "Login Successful..Redirecting..");
+                    SMS s =new SMS(); 
+                   // s.envoyer(22222984, "ton compte est connectée");
+                    
+                     
                     return role; 
                 }
             } catch (SQLException ex) {

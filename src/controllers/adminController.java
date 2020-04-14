@@ -88,13 +88,19 @@ public class adminController implements Initializable
 
         if (event.getSource() == gestionUti) {
             //login here
-                try {
-                    //add you loading or delays - ;-)
+                 try {
+                   FXMLLoader loader =  new  FXMLLoader(getClass().getResource("/fxml/OnBoard.fxml")); 
+
+                    Parent root = (Parent) loader.load();
+                    HomeController utcontroller = loader.getController(); 
+                    utcontroller.myFunction(emailut.getText());
+               
                     Node node = (Node) event.getSource();
                     Stage stage = (Stage) node.getScene().getWindow();
                     //stage.setMaximized(true);
                     stage.close();
-                    Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/fxml/OnBoard.fxml")));
+                               
+                    Scene scene = new Scene(root);
                     stage.setScene(scene);
                     stage.show();
                   

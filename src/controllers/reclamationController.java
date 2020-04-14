@@ -223,7 +223,35 @@ public class reclamationController implements Initializable
         {
             nomutlisateur.setText(Text);
         }
-      
+    /* retourn en arriére*/  
+      @FXML
+    private void Handle5Events(MouseEvent event) {
+        //check if not empty
+      try {
+                   FXMLLoader loader =  new  FXMLLoader(getClass().getResource("/fxml/InterfaceUtlisateur.fxml")); 
+
+                    Parent root = (Parent) loader.load();
+                    UtlisateurControlleur utcontroller = loader.getController(); 
+                    utcontroller.myFunction(nomutlisateur.getText());
+               
+                    Node node = (Node) event.getSource();
+                    Stage stage = (Stage) node.getScene().getWindow();
+                    //stage.setMaximized(true);
+                    stage.close();
+                               
+                    Scene scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
+               
+                } catch (IOException ex) {
+                    Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+ 
+         
+
+    }
+    
+              
     @FXML
     private void HandleEvents(MouseEvent event) {
         //check if not empty

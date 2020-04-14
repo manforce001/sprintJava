@@ -50,29 +50,34 @@
             <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </JFXTreeTableView>
-        <Label fx:id="lblStatus" layoutX="437.0" layoutY="64.0" prefHeight="32.0" prefWidth="354.0" text="Status :" />
+        <Label fx:id="lblStatus" layoutX="437.0" layoutY="83.0" prefHeight="32.0" prefWidth="354.0" text="Status :" />
       <Button fx:id="search" layoutX="1008.0" layoutY="109.0" mnemonicParsing="false" text="Search" />
-      <Button fx:id="refresh" layoutX="437.0" layoutY="109.0" mnemonicParsing="false" onMouseClicked="#Handle3Events" prefHeight="25.0" prefWidth="70.0" text="Refresh" />
+      <Button fx:id="refresh" layoutX="437.0" layoutY="122.0" mnemonicParsing="false" onMouseClicked="#Handle3Events" prefHeight="25.0" prefWidth="70.0" text="Refresh" />
       <Label layoutX="437.0" layoutY="149.0" prefHeight="32.0" prefWidth="228.0" text="Liste des reclamations">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="nomutlisateur" layoutX="878.0" layoutY="32.0" text="mohamedamin.nasri@esprit.tn">
+      <Label fx:id="nomutlisateur" layoutX="520.0" layoutY="14.0" text="mohamedamin.nasri@esprit.tn">
          <font>
             <Font name="Segoe UI Semibold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="878.0" layoutY="56.0" text="Edit profil">
+      <Label layoutX="520.0" layoutY="55.0" text="Edit profil">
          <font>
             <Font name="Segoe UI Semibold" size="14.0" />
          </font>
       </Label>
-      <ImageView fitHeight="64.0" fitWidth="70.0" layoutX="801.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="64.0" fitWidth="70.0" layoutX="440.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/img.png" />
          </image>
       </ImageView>
       <JFXTextField fx:id="searchtTF" layoutX="833.0" layoutY="109.0" />
+      <ImageView fitHeight="35.0" fitWidth="52.0" layoutX="1037.0" layoutY="18.0" onMouseClicked="#Handle5Events" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/back.JPG" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>
