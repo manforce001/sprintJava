@@ -26,7 +26,7 @@
                <font>
                   <Font name="Segoe UI Black" size="12.0" />
                </font></Label>
-            <Button fx:id="btndeconnextion" layoutX="1002.0" layoutY="27.0" mnemonicParsing="false" text="Deconnextion" />
+            <Button fx:id="btndeconnextion" layoutX="1002.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#handleButton6Action" text="Deconnextion" />
             <Label fx:id="reclamation" layoutX="743.0" layoutY="44.0" onMouseClicked="#handleButtonAction" prefHeight="17.0" prefWidth="171.0" text="Envoyer une réclamation">
                <font>
                   <Font name="Segoe UI Black" size="12.0" />

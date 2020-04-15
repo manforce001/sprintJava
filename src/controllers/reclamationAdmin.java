@@ -38,6 +38,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import javax.mail.MessagingException;
 import models.Reclamation;
 import models.User;
 import utils.ConnectionUtil;
@@ -73,6 +74,7 @@ public class reclamationAdmin implements Initializable
 
     @FXML
     private Button delete;
+    
   
     
 
@@ -304,6 +306,23 @@ public class reclamationAdmin implements Initializable
      
     }
     
+     /* déconnexion*/
+       public void handleButton6Action(MouseEvent event) throws MessagingException
+      {
+             try {
+
+                    //add you loading or delays - ;-)
+                    Node node = (Node) event.getSource();
+                    Stage stage = (Stage) node.getScene().getWindow();
+                    stage.close();
+                    Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/fxml/Login.fxml")));
+                    stage.setScene(scene);
+                    stage.show();
+
+                } catch (IOException ex) {
+                    System.err.println(ex.getMessage());
+                }
+      }
      @FXML
     private void Handle1Events(MouseEvent event) 
     {

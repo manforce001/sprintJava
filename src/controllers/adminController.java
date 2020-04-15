@@ -111,6 +111,25 @@ public class adminController implements Initializable
      
         }
     }
+    
+    /* déconnexion*/
+       public void handleButton6Action(MouseEvent event) throws MessagingException
+      {
+             try {
+
+                    //add you loading or delays - ;-)
+                    Node node = (Node) event.getSource();
+                    Stage stage = (Stage) node.getScene().getWindow();
+                    stage.close();
+                    Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/fxml/Login.fxml")));
+                    stage.setScene(scene);
+                    stage.show();
+
+                } catch (IOException ex) {
+                    System.err.println(ex.getMessage());
+                }
+      }
+
     /* gestion de reclamation*/
       public void handleButton2Action(MouseEvent event) throws MessagingException {
 

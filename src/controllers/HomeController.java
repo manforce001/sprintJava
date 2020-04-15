@@ -39,6 +39,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import javax.mail.MessagingException;
 import utils.ConnectionUtil;
 
 /**
@@ -153,10 +154,10 @@ public class HomeController implements Initializable {
                     
                 }
        
-	int annee = Integer.parseInt(tt[0]);
+	int jour  = Integer.parseInt(tt[0]);
         int mois  = Integer.parseInt(tt[1]);
-        int jour  = Integer.parseInt(tt[2]);
-        
+        int annee  = Integer.parseInt(tt[2]);
+
     
     txtDOB.setValue(LocalDate.of(annee, mois, jour));
 
@@ -198,6 +199,26 @@ fetRowList();
 
     }
     
+    
+    
+     /* déconnexion*/
+       public void handleButton6Action(MouseEvent event) throws MessagingException
+      {
+             try {
+
+                    //add you loading or delays - ;-)
+                    Node node = (Node) event.getSource();
+                    Stage stage = (Stage) node.getScene().getWindow();
+                    stage.close();
+                    Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/fxml/Login.fxml")));
+                    stage.setScene(scene);
+                    stage.show();
+
+                } catch (IOException ex) {
+                    System.err.println(ex.getMessage());
+                }
+      }
+
      /* delete*/
       @FXML
     private void HandleDeleteEvents(MouseEvent event) {

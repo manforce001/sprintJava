@@ -54,15 +54,32 @@ public class UtlisateurControlleur   implements Initializable
             nomutlisateur.setText(Text);
         }
      
-      public void handleButtonAction(MouseEvent event) throws MessagingException
+      public void handleButton6Action(MouseEvent event) throws MessagingException
+      {
+             try {
+
+                    //add you loading or delays - ;-)
+                    Node node = (Node) event.getSource();
+                    Stage stage = (Stage) node.getScene().getWindow();
+                    stage.close();
+                    Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/fxml/Login.fxml")));
+                    stage.setScene(scene);
+                    stage.show();
+
+                } catch (IOException ex) {
+                    System.err.println(ex.getMessage());
+                }
+      }
+
+     public void handleButtonAction(MouseEvent event) throws MessagingException
        {
 
-        if (event.getSource() == nomutlisateur) 
+        if (event.getSource() ==nomutlisateur ) 
         {
             
             
                try {
-                   FXMLLoader loader =  new  FXMLLoader(getClass().getResource("/fxml/EditUser.fxml")); 
+                   FXMLLoader loader =  new  FXMLLoader(getClass().getResource("/fxml/editUser.fxml")); 
 
                     Parent root = (Parent) loader.load();
                     editUserController utcontroller = loader.getController(); 

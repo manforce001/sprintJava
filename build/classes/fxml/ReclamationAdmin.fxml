@@ -84,10 +84,11 @@
          </image>
       </ImageView>
       <JFXTextField fx:id="searchtTF" layoutX="833.0" layoutY="109.0" />
-      <ImageView fitHeight="35.0" fitWidth="63.0" layoutX="1035.0" layoutY="15.0" onMouseClicked="#Handle5Events" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="35.0" fitWidth="63.0" layoutX="1035.0" layoutY="48.0" onMouseClicked="#Handle5Events" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/back.JPG" />
          </image>
       </ImageView>
+      <Button layoutX="993.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#handleButton6Action" prefHeight="25.0" prefWidth="96.0" text="Déconnexion" />
     </children>
 </AnchorPane>

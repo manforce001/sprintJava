@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="641.0" prefWidth="991.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.adminController">
+<AnchorPane id="AnchorPane" prefHeight="641.0" prefWidth="991.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.adminController">
     
       <children>
         <Pane fx:id="GestionSpon" layoutX="5.0" prefHeight="612.0" prefWidth="458.0" style="-fx-background-color: #6f002a;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -46,5 +46,6 @@
             <Image url="@../images/img.png" />
          </image>
       </ImageView>
+      <Button layoutX="876.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#handleButton6Action" prefHeight="25.0" prefWidth="107.0" text="Déconnexion" />
     </children> 
 </AnchorPane>
