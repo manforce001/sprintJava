@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="641.0" prefWidth="991.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.adminController">
+<AnchorPane id="AnchorPane" prefHeight="641.0" prefWidth="991.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.adminController">
     
       <children>
         <Pane fx:id="GestionSpon" layoutX="5.0" prefHeight="612.0" prefWidth="458.0" style="-fx-background-color: #6f002a;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -31,6 +31,7 @@
             <Button fx:id="GestionCommentaire" layoutX="39.0" layoutY="316.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="342.0" styleClass="button2" stylesheets="@../styling/fullpackstyling.css" text="Gestion de commentaire " />
             <Button fx:id="GestionSpo" layoutX="39.0" layoutY="377.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="342.0" styleClass="button2" stylesheets="@../styling/fullpackstyling.css" text="Gestion de sponsoring" />
             <Button fx:id="Gestionrec" layoutX="39.0" layoutY="435.0" mnemonicParsing="false" onMouseClicked="#handleButton2Action" prefHeight="41.0" prefWidth="342.0" styleClass="button2" stylesheets="@../styling/fullpackstyling.css" text="Gestion de reclamation" />
+            <Button fx:id="gestionActualité" layoutX="39.0" layoutY="492.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="342.0" styleClass="button2" stylesheets="@../styling/fullpackstyling.css" text="Gestion des actualités " />
             </children>
         </Pane>
       <TextField fx:id="nomUt" layoutX="693.0" layoutY="296.0" />

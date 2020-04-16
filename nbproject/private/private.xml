@@ -4,6 +4,7 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Nasri/Documents/NetBeansProjects/firstway/src/fxml/Login.fxml</file>
+            <file>file:/C:/Users/Nasri/Documents/NetBeansProjects/firstway/src/utils/SMS.java</file>
             <file>file:/C:/Users/Nasri/Documents/NetBeansProjects/firstway/src/fxml/InterfaceUtlisateur.fxml</file>
             <file>file:/C:/Users/Nasri/Documents/NetBeansProjects/firstway/src/fxml/admin.fxml</file>
             <file>file:/C:/Users/Nasri/Documents/NetBeansProjects/firstway/src/utils/mail.java</file>
@@ -19,6 +20,7 @@
             <file>file:/C:/Users/Nasri/Documents/NetBeansProjects/firstway/src/controllers/HomeController.java</file>
             <file>file:/C:/Users/Nasri/Documents/NetBeansProjects/firstway/src/home/Main.java</file>
             <file>file:/C:/Users/Nasri/Documents/NetBeansProjects/firstway/src/controllers/reclamationAdmin.java</file>
+            <file>file:/C:/Users/Nasri/Documents/NetBeansProjects/firstway/src/models/User.java</file>
             <file>file:/C:/Users/Nasri/Documents/NetBeansProjects/firstway/src/controllers/registerController.java</file>
             <file>file:/C:/Users/Nasri/Documents/NetBeansProjects/firstway/src/controllers/LoginController.java</file>
             <file>file:/C:/Users/Nasri/Documents/NetBeansProjects/firstway/src/service/forgetPassword.java</file>
