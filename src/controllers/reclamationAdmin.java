@@ -211,7 +211,7 @@ public class reclamationAdmin implements Initializable
               System.out.println("test  insertion");
               
 
-               list.addAll(new Reclamation(chaine[3], chaine[4], chaine[5], chaine[6]));
+               list.addAll(new Reclamation(chaine[2], chaine[3], chaine[4], chaine[5]));
               System.out.println("test  insertion valider");
 
 

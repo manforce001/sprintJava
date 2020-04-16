@@ -212,20 +212,28 @@ public class registerController implements Initializable
                 
             }
         String s =txtPassword.getText(); 
-        try {
-            String st = "INSERT INTO  user ( nom , prenom, email, role, telephone , dateNa, password) VALUES (?,?,?,?,?,?,?)";
+        try {   
+          //  String st = "INSERT INTO  user ( nom , prenom, email, role, telephone , dateNa, password) VALUES (?,?,?,?,?,?,?)";
+          String st = "INSERT INTO  user (username,username_canonical,email,email_canonical,enabled,salt,password,last_login,confirmation_token,password_requested_at,roles,nom,prenom,telephone,dateNa,mail)VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; 
             preparedStatement = (PreparedStatement) connection.prepareStatement(st);
             preparedStatement.setString(1, txtFirstname.getText());
-            preparedStatement.setString(2, txtLastname.getText());
+            preparedStatement.setString(2, txtFirstname.getText());
             preparedStatement.setString(3, txtEmail.getText());
-            preparedStatement.setString(4, txtGender.getValue().toString());
-            preparedStatement.setString(5, txttele.getText());
-            
-            preparedStatement.setString(6, txtDOB.getValue().toString());
+            preparedStatement.setString(4, txtEmail.getText());
+            preparedStatement.setInt(5, 1);
+            preparedStatement.setString(6, null);
             preparedStatement.setString(7, s);
+            preparedStatement.setDate(8, null);
+            preparedStatement.setString(9, null);
+            preparedStatement.setDate(10, null);    
+            preparedStatement.setString(11, txtGender.getValue().toString());
+            preparedStatement.setString(12, txtFirstname.getText());
+            preparedStatement.setString(13, txtLastname.getText());
+            preparedStatement.setString(14, txttele.getText());
+            preparedStatement.setString(15, txtDOB.getValue().toString());
+            preparedStatement.setString(16, txtEmail.getText());
 
-            
-
+         
             preparedStatement.executeUpdate();
          //   lblStatus.setTextFill(Color.GREEN);
            // lblStatus.setText("Added Successfully");
@@ -237,25 +245,22 @@ public class registerController implements Initializable
            // System.out.println(ex.getMessage());
            // lblStatus.setTextFill(Color.TOMATO);
             //lblStatus.setText(ex.getMessage());
-            return "Exception";
+            return ex.toString();
         }
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
-         txtGender.getItems().addAll("admin", "jury", "coatch","utlisateur");
+         txtGender.getItems().addAll("admin", "jury", "coatch","utlisateur","sponsor","condidat");
          txtGender.getSelectionModel().select("utlisateur");
     }
 
     
-
-    
-    
-    
-    
-    
-    
+/*
+    id,username,username_canonical,email,email_canonical,enabled,salt,password,last_login,confirmation_token,password_requested_at,roles,nom,prenom
+    ,telephone,dateNa
+  */     
 }
 
 

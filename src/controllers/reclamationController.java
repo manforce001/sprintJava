@@ -201,7 +201,7 @@ public class reclamationController implements Initializable
               System.out.println("test  insertion");
               
 
-               list.addAll(new Reclamation(chaine[3], chaine[4], chaine[5], chaine[6]));
+               list.addAll(new Reclamation(chaine[2], chaine[3], chaine[4], chaine[5]));
               System.out.println("test  insertion valider");
 
 
@@ -329,13 +329,13 @@ public class reclamationController implements Initializable
       {
           int a=Recherche(nomutlisateur.getText()).getId(); 
            try {
-            String st = "INSERT INTO  reclamation (id_user,sujet, reclamation , etat ,reponse) VALUES (?,?,?,?,?)";
+            String st = "INSERT INTO  reclamation (sujet, reclamation , etat ,reponse,id_user) VALUES (?,?,?,?,?)";
             preparedStatement = (PreparedStatement) connection.prepareStatement(st);
-            preparedStatement.setInt(1,a);
-            preparedStatement.setString(2, txtFirstname.getText());
-            preparedStatement.setString(3, txtLastname.getText());
-            preparedStatement.setString(4, "Null");
-            preparedStatement.setString(5, "Non traitée ");
+            preparedStatement.setString(1, txtFirstname.getText());
+            preparedStatement.setString(2, txtLastname.getText());
+            preparedStatement.setString(3, "Null");
+            preparedStatement.setString(4, "Non traitée ");
+            preparedStatement.setInt(5,a);
      
            preparedStatement.executeUpdate();
            lblStatus.setText("Added Successfully");

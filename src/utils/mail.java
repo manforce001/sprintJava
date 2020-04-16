@@ -34,7 +34,7 @@ public class mail
 		final String password = "testcondors";*/
                 
                 final String user = "nasri.mohamed001@gmail.com";
-		final String pass = "omayma2014";
+		final String pass = "xxxxxxxxx";
                 
 		try {
                     

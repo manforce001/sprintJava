@@ -147,13 +147,13 @@ public class LoginController implements Initializable {
        }
        
     }
-        
+        /* connexion */
     @FXML
     public void handleButtonAction(MouseEvent event) throws MessagingException {
 
         if (event.getSource() == btnSignin) {
             //login here
-            if (logIn().equals("admin")) {
+            if (logIn().contains("admin")) {
                try {
                    FXMLLoader loader =  new  FXMLLoader(getClass().getResource("/fxml/admin.fxml")); 
 
@@ -181,7 +181,9 @@ public class LoginController implements Initializable {
             }
             else
             {
-            if (logIn().equals("utlisateur"))
+                /* pour utlisateur*/
+                /* changer le lien de fxml*/
+            if (logIn().contains("utlisateur"))
             {
                 try {
                    FXMLLoader loader =  new  FXMLLoader(getClass().getResource("/fxml/InterfaceUtlisateur.fxml")); 
@@ -204,6 +206,93 @@ public class LoginController implements Initializable {
                 }
 
             }
+            /* pour le jury */
+            /* changer justement le lien de fxml */
+            else 
+            { 
+                 if (logIn().contains("JURY"))
+                  {
+                try {
+                   FXMLLoader loader =  new  FXMLLoader(getClass().getResource("/fxml/InterfaceUtlisateur.fxml")); 
+
+                    Parent root = (Parent) loader.load();
+                    UtlisateurControlleur utcontroller = loader.getController(); 
+                    utcontroller.myFunction(txtUsername.getText());
+               
+                    Node node = (Node) event.getSource();
+                    Stage stage = (Stage) node.getScene().getWindow();
+                    //stage.setMaximized(true);
+                    stage.close();
+                               
+                    Scene scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
+               
+                } catch (IOException ex) {
+                    Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+             }
+            /* pour le coatch */
+            /* changer justement le lien de fxml */
+                 else
+                 {
+                     if (logIn().contains("coatch"))
+                    {
+                        try {
+                           FXMLLoader loader =  new  FXMLLoader(getClass().getResource("/fxml/InterfaceUtlisateur.fxml")); 
+
+                            Parent root = (Parent) loader.load();
+                            UtlisateurControlleur utcontroller = loader.getController(); 
+                            utcontroller.myFunction(txtUsername.getText());
+
+                            Node node = (Node) event.getSource();
+                            Stage stage = (Stage) node.getScene().getWindow();
+                            //stage.setMaximized(true);
+                            stage.close();
+
+                            Scene scene = new Scene(root);
+                            stage.setScene(scene);
+                            stage.show();
+
+                        } catch (IOException ex) {
+                            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+
+                    }
+                     else
+                         /* pour le sponsor */
+                         /* changer le lien de fxml*/
+                     {
+                          if (logIn().contains("SPONSOR"))  
+                            {
+                                try {
+                                   FXMLLoader loader =  new  FXMLLoader(getClass().getResource("/fxml/InterfaceUtlisateur.fxml")); 
+
+                                    Parent root = (Parent) loader.load();
+                                    UtlisateurControlleur utcontroller = loader.getController(); 
+                                    utcontroller.myFunction(txtUsername.getText());
+
+                                    Node node = (Node) event.getSource();
+                                    Stage stage = (Stage) node.getScene().getWindow();
+                                    //stage.setMaximized(true);
+                                    stage.close();
+
+                                    Scene scene = new Scene(root);
+                                    stage.setScene(scene);
+                                    stage.show();
+
+                                } catch (IOException ex) {
+                                    Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+
+                            }
+                     }
+                     
+                 }
+                
+            } 
+            
                 
             }
          
@@ -218,7 +307,8 @@ public class LoginController implements Initializable {
         if (con == null) {
             lblErrors.setTextFill(Color.TOMATO);
             lblErrors.setText("Server Error : Check");
-        } else {
+        } 
+        else {
             lblErrors.setTextFill(Color.GREEN);
             lblErrors.setText("Server is up : Good to go");
         }
@@ -271,8 +361,8 @@ public class LoginController implements Initializable {
                     status = "Error";
                 } else {
                     System.out.println("test role");
-                    System.out.println(resultSet.getString(4)); 
-                    String role =resultSet.getString(5); 
+                    System.out.println(resultSet.getString(12)); 
+                    String role =resultSet.getString(12); 
                     System.err.println("test role");
                     setLblError(Color.GREEN, "Login Successful..Redirecting..");
                     SMS s =new SMS(); 

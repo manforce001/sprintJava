@@ -190,7 +190,7 @@ public class editUserController implements Initializable
     public void saveData()
       {
             try {
-            String st = "UPDATE user  set  nom=? , prenom=? , role=? ,telephone=?,password =?  where email =?  ";
+            String st = "UPDATE user  set  nom=? , prenom=? , roles=? ,telephone=?,password =?  where email =?  ";
             preparedStatement = (PreparedStatement) connection.prepareStatement(st);
             preparedStatement.setString(1, txtFirstname.getText());
             preparedStatement.setString(2, txtLastname.getText());
@@ -244,7 +244,7 @@ public class editUserController implements Initializable
             while(rs.next())
             {
                 
-                User p = new User(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8));
+                User p = new User(rs.getInt(1), rs.getString(13), rs.getString(14),rs.getString(4), rs.getString(12), rs.getString(15), rs.getString(16), rs.getString(8));
                 System.out.println(p.toString());
                 return (p); 
 

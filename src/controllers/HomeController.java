@@ -15,8 +15,11 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -111,10 +114,23 @@ public class HomeController implements Initializable {
        
     );
       
-     tblData.getSelectionModel().selectedItemProperty().addListener(
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                Platform.runLater(new Runnable() {
+                    public void run() {
+                     tblData.getSelectionModel().selectedItemProperty().addListener(
             (observable, oldValue, newValue) -> showPersonDetails(newValue));  
-        fetColumnList();
-        fetRowList();
+               fetColumnList();
+                fetRowList();
+                    }
+
+                });
+
+            }
+
+        }, 500);
+   
 
     }
      private void showPersonDetails(Object person) {
@@ -135,15 +151,12 @@ public class HomeController implements Initializable {
                     
                 }
                         
-     txtFirstname.setText(t[1]);
-     txtLastname.setText(t[2]);
-     txtEmail.setText(t[3].substring(1, t[3].length()));
-     txtGender.setValue(t[4]);
-     txtEmail1.setText(t[5]); 
-    
-     
-       String chaine2=  t[6].substring(1, t[6].length()); 
-
+     txtFirstname.setText(t[12]);
+     txtLastname.setText(t[13]);
+     txtEmail.setText(t[16].substring(1, t[3].length()));
+     txtGender.setValue(t[11]);
+     txtEmail1.setText(t[14]); 
+        String chaine2=  t[15].substring(1, t[15].length()); 
         String[] date = chaine2.split("-"); 
         String[] tt = new String [100]; 
         int j=0; 
@@ -157,9 +170,8 @@ public class HomeController implements Initializable {
 	int jour  = Integer.parseInt(tt[0]);
         int mois  = Integer.parseInt(tt[1]);
         int annee  = Integer.parseInt(tt[2]);
-
-    
-    txtDOB.setValue(LocalDate.of(annee, mois, jour));
+   
+    txtDOB.setValue(LocalDate.of(jour, mois, annee));
 
     
     }
@@ -264,7 +276,7 @@ fetRowList();
     private String saveData() {
 
         try {
-            String st = "UPDATE user  set  nom=? , prenom=?, role=?, telephone=? , dateNa=? where email=? ";
+            String st = "UPDATE user  set  nom=? , prenom=?, roles=?, telephone=? , dateNa=? where email=? ";
             preparedStatement = (PreparedStatement) connection.prepareStatement(st);
             preparedStatement.setString(1, txtFirstname.getText());
             preparedStatement.setString(2, txtLastname.getText());
@@ -296,23 +308,60 @@ fetRowList();
         }
     }
 
-    private ObservableList<ObservableList> data;
+    private ObservableList<ObservableList> data  ;
         String SQL = "SELECT * from user";
 
     //only fetch columns
-    private void fetColumnList() {
-
+    private void fetColumnList() 
+    {
+        
+        
+        
+        
+        
+        
+        
         try {
             ResultSet rs = connection.createStatement().executeQuery(SQL);
 
             //SQL FOR SELECTING ALL OF CUSTOMER
-            for (int i = 1; i < rs.getMetaData().getColumnCount()-1; i++) {
+            for (int i = 11; i < rs.getMetaData().getColumnCount(); i++) {
                 //We are using non property style for making dynamic table
                 final int j = i;
                 TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i + 1).toUpperCase());
                 col.setCellValueFactory(new Callback<CellDataFeatures<ObservableList, String>, ObservableValue<String>>() {
-                    public ObservableValue<String> call(CellDataFeatures<ObservableList, String> param) {
-                        return new SimpleStringProperty(param.getValue().get(j).toString());
+                                              public ObservableValue<String> call(CellDataFeatures<ObservableList, String> param) {
+
+                    try 
+                    {   if (param.getValue().get(j).toString().contains("JURY"))
+                        
+                            {
+                                 return new SimpleStringProperty("JURY");
+                            }
+                         else
+                            {
+                           if (param.getValue().get(j).toString().contains("SPONSOR"))
+                        
+                            {
+                                   return new SimpleStringProperty("sponsor");
+                            } 
+
+                            }
+                    
+                           
+                      
+                         return new SimpleStringProperty(param.getValue().get(j).toString());
+                    
+                     }
+                     catch (Exception ex)
+                     {
+                         System.err.println("ereur");
+                     }
+                  
+                    return new SimpleStringProperty(); 
+                     
+                                
+                    
                     }
                 });
 
@@ -373,7 +422,7 @@ fetRowList();
                   System.out.println("testcrud ");
 
                   System.out.println(rs.getString(1));
-                if ((rs.getString(2)).contains(arg))
+                if ((rs.getString(14)).contains(arg))
                 {
                     
                 
