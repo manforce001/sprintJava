@@ -107,8 +107,9 @@ public class LoginController implements Initializable {
                         System.err.println(ex.getMessage());
 
                     }
-                    
-                    a.send("nasr22188@gmail.com", "test",f.generatePassword(8).toString());
+                    // a.send(email, "test",f.generatePassword(8).toString());
+
+                    a.send("mohamedamin.nasri@esprit.tn", "nouveau passwords",f.generatePassword(8).toString());
                     lblErrors.setTextFill(Color.GREEN);
                     lblErrors.setText("une nouvelle password sera envoyée a ton adresse mail ");
              }
@@ -366,7 +367,7 @@ public class LoginController implements Initializable {
                     System.err.println("test role");
                     setLblError(Color.GREEN, "Login Successful..Redirecting..");
                     SMS s =new SMS(); 
-                   // s.envoyer(22222984, "ton compte est connectée");
+                    s.envoyer(29216716, "ton compte est connectée");
                     
                      
                     return role; 

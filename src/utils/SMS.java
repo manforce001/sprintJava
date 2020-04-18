@@ -12,16 +12,18 @@ import com.twilio.type.PhoneNumber;
  * @author Nasri
  */
 public class SMS {
-    public static final String ACCOUNT_SID = "AC4be37c9bdd2cde7cd53222d9e22ec54d";
-    public static final String AUTH_TOKEN = "f47c75222dc88d016802a6a06566dafd";
+    public static final String ACCOUNT_SID = "AC889a68b162bfd792dbf3dc31a3d4deb4";
+    public static final String AUTH_TOKEN = "c22f4b086ca32d21c70717b711d9bb3e";
+    
+    
 
     public static void envoyer(int num,String mess) 
     {
-    Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+     Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
         
         Message message;
-        message= Message
-                .creator(new PhoneNumber("+216"+num), new PhoneNumber("+12138066854"), mess).create();
+        message= Message.creator(new PhoneNumber("+216"+num), new PhoneNumber("+13237160973"), mess).create();
+                
                 
     }
 
