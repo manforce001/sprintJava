@@ -154,7 +154,7 @@ public class LoginController implements Initializable {
 
         if (event.getSource() == btnSignin) {
             //login here
-            if (logIn().contains("admin")) {
+            if (logIn().contains("ADMIN")) {
                try {
                    FXMLLoader loader =  new  FXMLLoader(getClass().getResource("/fxml/admin.fxml")); 
 
@@ -184,7 +184,7 @@ public class LoginController implements Initializable {
             {
                 /* pour utlisateur*/
                 /* changer le lien de fxml*/
-            if (logIn().contains("utlisateur"))
+            if (logIn().contains("UTILISATEUR"))
             {
                 try {
                    FXMLLoader loader =  new  FXMLLoader(getClass().getResource("/fxml/InterfaceUtlisateur.fxml")); 
@@ -238,7 +238,7 @@ public class LoginController implements Initializable {
             /* changer justement le lien de fxml */
                  else
                  {
-                     if (logIn().contains("coatch"))
+                     if (logIn().contains("COATCH"))
                     {
                         try {
                            FXMLLoader loader =  new  FXMLLoader(getClass().getResource("/fxml/InterfaceUtlisateur.fxml")); 

@@ -252,7 +252,7 @@ public class registerController implements Initializable
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
-         txtGender.getItems().addAll("admin", "jury", "coatch","utlisateur","sponsor","condidat");
+         txtGender.getItems().addAll("ADMIN", "JURY", "COATCH","UTILISATEUR","SPONSOR","CONDIDAT");
          txtGender.getSelectionModel().select("utlisateur");
     }
 
